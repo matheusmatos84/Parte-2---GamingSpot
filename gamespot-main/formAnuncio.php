@@ -1,5 +1,7 @@
+<?php include "header.php" ?> 
+
 <!-- SEÇÃO DO "ANUNCIO" -->
-    <section class="py-5" id="anuncie">
+    <section class="py-5" id="anuncie" style="margin-top: 7%;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -47,7 +49,7 @@
 
                                     </select>
 
-                                    <label for="categoriaAnuncio">Categoria</label>
+                                    <label for="categoriaAnuncio" style="margin-right: 100px;">Categoria</label>
                                 </div>
 
                                 <div class="form-floating mt-3 mb-3">
@@ -84,3 +86,5 @@
             </div>
         </div>
     </section>
+
+<?php include "footer.php" ?>
