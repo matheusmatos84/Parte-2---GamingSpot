@@ -1,6 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['idUsuario'])) {
+    header("Location: formLogin.php?erroLogin=loginNecessario");
+    exit();
+}
+
+$idUsuario = $_SESSION['idUsuario'];
+?>
+
 <!-- Inclui o header.php -->
 <?php include "header.php" ?>
-
+<div style="padding-top: 200px;"></div>
     <?php
     
         //Verifica o método de requisição do servidor
@@ -75,8 +86,8 @@
                 }
 
                 //Verifica se a foto está nos formatos JPG, JPEG, PNG ou WEBP
-                if($tipoDaImagem != "jpg" && $tipoDaImagem != "jpeg" && $tipoDaImagem != "png" && $tipoDaImagem != "webp"){
-                    echo "<div class='alert alert-warning text-center'>A <strong>FOTO</strong> deve estar no formatos JPG, JPEG, PNG ou WEBP!</div>";
+                if($tipoDaImagem != "jpg" && $tipoDaImagem != "jpeg" && $tipoDaImagem != "png" && $tipoDaImagem != "webp" && $tipoDaImagem != "jfif"){
+                    echo "<div class='alert alert-warning text-center'>A <strong>FOTO</strong> deve estar no formatos JPG, JPEG, PNG, JFIF ou WEBP!</div>";
                     $erroUpload = true;
                 }
 
@@ -96,7 +107,7 @@
             if(!$erroPreenchimento && !$erroUpload){
 
                 //Criar uma variável para armazenar a QUERY que realiza a inserção de dados do Usuário na tabela Usuarios
-                $inserirAnuncio = "INSERT INTO Anuncios (Usuarios_idUsuario, fotoAnuncio, tituloAnuncio, categoriaAnuncio, descricaoAnuncio, valorAnuncio, dataAnuncio, horaAnuncio, statusAnuncio) VALUES ('$idUsuario', '$fotoAnuncio', '$tituloAnuncio', '$categoriaAnuncio', '$descricaoAnuncio', $valorAnuncio, '$dataAnuncio', '$horaAnuncio', 'disponivel')";
+                $inserirAnuncio = "INSERT INTO Anuncios (Usuarios_idUsuario, fotoAnuncio, tituloAnuncio, categoriaAnuncio, descricaoAnuncio, valorAnuncio, dataAnuncio, horaAnuncio) VALUES ('$idUsuario', '$fotoAnuncio', '$tituloAnuncio', '$categoriaAnuncio', '$descricaoAnuncio', $valorAnuncio, '$dataAnuncio', '$horaAnuncio')";
 
                 //Inclui o arquivo de conexão com o Banco de Dados
                 include "conexaoBD.php";
@@ -161,6 +172,6 @@
         }
     
     ?>
-
+    <div style="min-height: 30vh;"></div>
 <!-- Inclui o footer.php -->
 <?php include "footer.php" ?>

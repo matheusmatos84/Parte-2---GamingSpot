@@ -11103,7 +11103,9 @@ textarea.is-invalid{
     background-color: white !important;
 }
 
-
+body {
+    padding-top: 100px;
+}
 
 
 /*

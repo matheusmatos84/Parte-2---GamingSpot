@@ -1,7 +1,7 @@
 <!-- Inclui o header.php -->
 <?php include "header.php" ?>
-<br><br><br><br><br><br><br><br>
-    <?php
+
+    <?php 
     
         //Verifica o método de requisição do servidor
         if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -81,6 +81,7 @@
                     $erroPreenchimento = true;
                 }
             }
+
             //Validação do campo senhaUsuario
             //Utiliza a função empty() para verificar se o campo está vazio
             if(empty($_POST["senhaUsuario"])){
@@ -109,56 +110,50 @@
                 }
             }
 
-            //Se NÃO houver erro de preenchimento e NÃO houver erro no upload da foto
-            if(!$erroPreenchimento){
+            //Criar uma variável para armazenar a QUERY que realiza a inserção de dados do Usuário na tabela Usuarios
+            $inserirUsuario = "INSERT INTO Usuarios (nomeUsuario, dataNascimentoUsuario, emailUsuario, senhaUsuario, nivelUsuario)
+                                VALUES ('$nomeUsuario', '$dataNascimentoUsuario', '$emailUsuario', '$senhaUsuario', 'usuario')";
 
-                //Criar uma variável para armazenar a QUERY que realiza a inserção de dados do Usuário na tabela Usuarios
-                $inserirUsuario = "INSERT INTO Usuarios (nomeUsuario, dataNascimentoUsuario, emailUsuario, senhaUsuario, nivelUsuario)
-                                    VALUES ('$nomeUsuario', '$dataNascimentoUsuario', '$emailUsuario', '$senhaUsuario', 'usuario')";
+            //Inclui o arquivo de conexão com o Banco de Dados
+            include "conexaoBD.php";
 
-                //Inclui o arquivo de conexão com o Banco de Dados
-                include "conexaoBD.php";
+            //Se conseguir executar a QUERY para inserção, exibe alerta de sucesso e a tabela com os dados informados
+            //A funçao mysqli_query executa operações no Banco de Dados
+            if(mysqli_query($conn, $inserirUsuario)){
 
-                //echo "QUERY: $inserirUsuario";
-
-                //Se conseguir executar a QUERY para inserção, exibe alerta de sucesso e a tabela com os dados informados
-                //A funçao mysqli_query executa operações no Banco de Dados
-                if(mysqli_query($conn, $inserirUsuario)){
-
-                    echo "<div class='container'>";
-                        echo "<div class='alert alert-success text-center mt-5'><strong>USUÁRIO</strong> cadastrado com sucesso!</div>";
-                        echo "
-                            <div class='container mt-3'>
-                                <table class='table'>
-                                    <tr>
-                                        <th>NOME</th>
-                                        <td>$nomeUsuario</td>
-                                    </tr>
-                                    <tr>
-                                        <th>DATA DE NASCIMENTO</th>
-                                        <td>$diaNascimentoUsuario/$mesNascimentoUsuario/$anoNascimentoUsuario</td>
-                                    </tr>
-                                    <tr>
-                                        <th>EMAIL</th>
-                                        <td>$emailUsuario</td>
-                                    </tr>
-                                    <tr>
-                                        <th>SENHA</th>
-                                        <td>$senhaUsuario</td>
-                                    </tr>
-                                    <tr>
-                                        <th>CONFIRMAÇÃO DE SENHA</th>
-                                        <td>$confirmarSenhaUsuario</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        ";
-                    echo "</div>";
-                }
-                else{
-                    echo "<div class='alert alert-danger text-center'>
-                    Erro ao tentar inserir dados do<strong>USUÁRIO</strong> no banco de dados $database!</div>";
-                }
+                echo "<div class='container'>";
+                    echo "<div class='alert alert-success text-center'><strong>USUÁRIO</strong> cadastrado com sucesso!</div>";
+                    echo "
+                        <div class='container mt-3'>
+                            <table class='table'>
+                                <tr>
+                                    <th>NOME</th>
+                                    <td>$nomeUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>DATA DE NASCIMENTO</th>
+                                    <td>$diaNascimentoUsuario/$mesNascimentoUsuario/$anoNascimentoUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>EMAIL</th>
+                                    <td>$emailUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>SENHA</th>
+                                    <td>$senhaUsuario</td>
+                                </tr>
+                                <tr>
+                                    <th>CONFIRMAÇÃO DE SENHA</th>
+                                    <td>$confirmarSenhaUsuario</td>
+                                </tr>
+                            </table>
+                        </div>
+                    ";
+                echo "</div>";
+            }
+            else{
+                echo "<div class='alert alert-danger text-center'>
+                Erro ao tentar inserir dados do<strong>USUÁRIO</strong> no banco de dados $database!</div>";
             }
         }
         else{
@@ -177,6 +172,7 @@
         }
     
     ?>
-
+    
+    <div style="min-height: 40vh;"></div>
 <!-- Inclui o footer.php -->
 <?php include "footer.php" ?>

@@ -3,9 +3,9 @@
 <!-- SEÇÃO DO "SOBRE" -->
 <main>
     <section class="page-section" style="background-color: white;">
-        <div class="container">
+        <div class="container" style="margin-bottom: 5%;">
 
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sobre a Nossa Plataforma</h2>
+            
         
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -13,18 +13,29 @@
                 <div class="divider-custom-line"></div>
             </div>
                 
-            <div class="row">
-                
-                <div class="col-lg-4 ms-auto">
+            <div class="row align-items-center mt-5">
+
+    <!-- Texto -->
+
+                <!-- Texto -->
+                <div class="col-lg-5">
+                    <h1 class="mb-4 text-center" style="margin-left: -20px;">Sobre a Nossa Plataforma</h1>
+
                     <p class="lead">
-                        Este espaço foi criado pela paixão em conectar a comunidade gamer de forma simples e eficiente. Em um mercado vasto de consoles, acessórios e jogos, sabemos como é importante encontrar o que você precisa ou dar visibilidade àquele seu item especial.
+                        Este espaço foi criado pela paixão em conectar a comunidade gamer de forma simples e eficiente.
+                    </p>
+
+                    <p class="lead text-align-justify">
+                        Nossa plataforma é o seu ponto de encontro para explorar conteúdo, anunciar com facilidade e fortalecer a comunidade gamer.
                     </p>
                 </div>
-                
-                <div class="col-lg-4 me-auto">
-                    <p class="lead">
-                        Nossa plataforma é o seu ponto de encontro para: Explorar Conteúdo, Anunciar com Facilidade e promover Comunidade e Conexão garantindo transparência e confiança. Nosso objetivo é simplificar sua experiência e tornar a paixão por jogos ainda mais acessível!
-                    </p>
+
+                <!-- Imagem -->
+                <div class="col-lg-7 d-flex justify-content-end">
+                    <img src="assets/img/gta-6-grand-theft-auto-foto-divulgacao-rockstar.jpg"
+                        class="img-fluid"
+                        style="width:100%; max-width:650px; border-radius:15px; margin-left: 2px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);"
+                        alt="Imagem GTA VI">
                 </div>
             </div>
         </div>

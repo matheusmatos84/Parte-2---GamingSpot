@@ -8,7 +8,7 @@
 
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="bi bi-telephone"></i></div>
+                <div class="divider-custom-icon"><i class="bi bi-controller"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
 

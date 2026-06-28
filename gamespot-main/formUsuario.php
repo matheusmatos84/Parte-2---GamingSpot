@@ -8,14 +8,14 @@
 
             <div class="divider-custom">
                 <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="bi bi-telephone"></i></div>
+                <div class="divider-custom-icon"><i class="bi bi-controller"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
 
             <!-- FORMULARIO DE CONTATO -->
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7">
-                    <form id="contatoForm" data-sb-form-api-token="API_TOKEN" action="actionUsuario.php" method="POST">
+                    <form action="actionUsuario.php" method="POST" class="was-validated">
 
                         <!-- NOME -->
                         <div class="form-floating mb-3">
